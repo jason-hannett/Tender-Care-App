@@ -1,14 +1,20 @@
+
+
 .home-container{
     width: 100vw;
+    background-color: #e6e6e6;
     display: flex;
-    align-items: start;
-    justify-content: center;
-    padding: 15px 0px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 5px 0px;
 }
 
 .home-post-container{
     width: 95vw;
     height: 50px;
+    margin: 10px 0px;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -32,3 +38,14 @@
     color: white;
     border-radius: 5%;
 }
+
+.home-feed-container{
+    width: 95vw;
+    padding: 5px 0px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+}
+

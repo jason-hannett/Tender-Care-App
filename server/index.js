@@ -9,6 +9,7 @@ const express = require('express'),
       {google} = require('googleapis'),
       {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env,
       auth = require('./authCtrl'),
+      ctrl = require('./controller'),
       port = SERVER_PORT,
       app = express();
 
@@ -30,6 +31,11 @@ const express = require('express'),
     });
 
     // GOOGLE CALENDAR API
+
+    // ENDPOINTS 
+
+    app.get('/api/get-all-posts', ctrl.getAllPosts)
+    app.post('/api/add-post', ctrl.addPost)
 
     // AUTH ENDPOINTS
 

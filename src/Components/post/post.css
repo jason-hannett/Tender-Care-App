@@ -1,0 +1,35 @@
+.post-container{
+    width: 100%;
+    background-color: white;
+    padding: 0px 0px;
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px rgb(160, 160, 160);
+}
+
+.post-info-container{
+    width: 92%;
+    height: 100px;
+    height: auto;
+}
+
+#post-date{
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#post-text{
+    width: 100%;
+    word-wrap: break-word;
+    text-align: start;
+    font-size: 20px;
+}
+
+#post-image{
+    height: 250px;
+    width: 100%;
+}
