@@ -1,0 +1,49 @@
+.account-container{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+.account-name-container{
+    height: 70px;
+    width: 90vw;
+    /* background-color: blue; */
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    /* color: white; */
+    flex: 2;
+}
+
+.account-kids-container{
+    height: auto;
+    width: 90vw;
+    background-color: #ffb92a;
+    padding: 10px 10px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.account-bills-container{
+    height: 70px;
+    width: 90vw;
+    background-color: #ed5414;
+    padding: 0px 10px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.account-bills-container button{
+    height: 40px;
+    width: 80px;
+}

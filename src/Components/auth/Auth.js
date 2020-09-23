@@ -12,8 +12,8 @@ function Auth(props) {
             <div className='login-action-container'>
               <input id='login-input' placeholder='username'/>
               <input id='login-input' type='password' placeholder='password'/>
-              <button id='login-button' onClick={() => props.history.push('/home')}>Login</button>
-            <p>create account?</p>
+              <button id='login-button' onClick={() => props.history.push('/home')}>LOGIN</button>
+            <p onClick={() => props.history.push('/register')}>create account?</p>
             </div>
         </div>
     </div>
