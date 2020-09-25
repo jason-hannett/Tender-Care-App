@@ -6,7 +6,7 @@ import Nav from './Components/nav/Nav'
 function App(props) {
   return (
     <div className="App">
-      {props.location.pathname === '/auth' || props.location.pathname === '/register'
+      {props.location.pathname === '/auth' || props.location.pathname === '/register' || props.location.pathname === '/info'
       ?(<>{routes}</>)
       : (
         <>

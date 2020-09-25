@@ -22,7 +22,7 @@ function Register(props) {
       const {user_id, email} = response.data
       props.setUserInfo(user_id, email)
       // ROUTE TO MORE CHILD INFO 
-      props.history.push('/home')
+      props.history.push('/info')
   })
   .catch(err => alert('email already exists')))
   

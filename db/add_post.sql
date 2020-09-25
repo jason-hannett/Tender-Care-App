@@ -1,4 +1,4 @@
 insert into posts 
-(post)
+(post, image)
 values 
-(${post});
+(${post}, ${image});

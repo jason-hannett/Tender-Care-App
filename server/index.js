@@ -10,6 +10,7 @@ const express = require('express'),
       {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env,
       auth = require('./authCtrl'),
       ctrl = require('./controller'),
+      parent = require('./parentCtrl')
       port = SERVER_PORT,
       app = express();
 
@@ -36,6 +37,15 @@ const express = require('express'),
 
     app.get('/api/get-all-posts', ctrl.getAllPosts)
     app.post('/api/add-post', ctrl.addPost)
+    app.delete('/api/delete-post/:id', ctrl.deletePost)
+    
+    // PARENT ENDPOINTS
+    
+    app.get('/api/get-all-parent', parent.getAllParent)
+    app.get('/api/get-primary/:user_id', parent.getPrimary)
+    app.post('/api/add-primary', parent.addPrimary)
+    app.post('/api/add-secondary', parent.addSecondary)
+    app.post('/api/add-child', parent.addChild)
 
     // AUTH ENDPOINTS
 
