@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {setPrimaryInfo} from '../../redux/primaryInfo'
 import ParentInfo from './ParentInfo'
 import ChildInfo from './ChildInfo'
+import UserBilling from './UserBilling'
 import axios from 'axios'
 import './account.css'
 
@@ -12,6 +13,7 @@ function Profile(props) {
 
   const [allParent, setAllParent] = useState([]);
   const [allChild, setAllChild] = useState([]);
+  const [allUserBills, setAllUserBills] = useState([]);
   const [amountDue, setAmountDue] = useState(0);
   // console.log(props)
 
@@ -25,9 +27,15 @@ function Profile(props) {
     .then(response => setAllChild(response.data))
   }
 
+  const getAllUserBills = () => {
+    axios.get('/api/get-user-bills')
+    .then(response => setAllUserBills(response.data))
+  }
+
   useEffect(() => {
     getAllParent()
     getAllChild()
+    getAllUserBills()
   }, [])
 
   // console.log(allParent)
@@ -37,6 +45,9 @@ function Profile(props) {
   })
   const childInfo = allChild.map((element, index) => {
     return <ChildInfo key={index} child={element} getAllChild={getAllChild}/>
+  })
+  const userBilling = allUserBills.map((element, index) => {
+    return <UserBilling key={index} bill={element} getAllUserBills={getAllUserBills}/>
   })
 
   return (
@@ -60,6 +71,9 @@ function Profile(props) {
         </div>
         <div className='account-info-container'>
           billing info
+        </div>
+        <div className='account-billing-info'>
+            {userBilling}
         </div>
         <div className='account-bills-container'>
           {/* get amount off props */}

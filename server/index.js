@@ -10,7 +10,8 @@ const express = require('express'),
       {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env,
       auth = require('./authCtrl'),
       ctrl = require('./controller'),
-      parent = require('./parentCtrl')
+      parent = require('./parentCtrl'),
+      billing = require('./billingCtrl'),
       port = SERVER_PORT,
       app = express();
 
@@ -48,6 +49,11 @@ const express = require('express'),
     app.post('/api/add-secondary', parent.addSecondary)
     app.post('/api/add-child', parent.addChild)
     app.delete('/api/delete-child/:child_id', parent.deleteChild)
+
+    // BILLING ENDPOINGS 
+
+    app.post('/api/add-bill/:user_id', billing.addBill)
+    app.get('/api/get-user-bills', billing.getAllUserBills)
 
     // AUTH ENDPOINTS
 
