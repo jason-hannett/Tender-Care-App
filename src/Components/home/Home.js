@@ -7,6 +7,7 @@ import Post from '../post/Post';
 import axios from 'axios';
 import camera from './instagram-camera-icon-png-image-free-download-searchpngcom-instagram-camera-png-2048_2048.png'
 import './home.css';
+import { cleanup } from '@testing-library/react';
 
 function Home(props) {
 
@@ -29,7 +30,10 @@ function Home(props) {
     .then(response => setAllPosts(response.data))
   }
 
-  useEffect(() => {getAllPosts()})
+  useEffect(() => {
+    getAllPosts()
+    cleanup()
+  }, [])
 
   
   console.log()

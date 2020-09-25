@@ -36,3 +36,11 @@ create table child_info(
     childLast varchar(50),
     childAge int
 );
+
+create table billing(
+    bill_id serial primary key,
+    user_id int references users(user_id),
+    amount int,
+    billdate date default current_date,
+    paid boolean 
+);

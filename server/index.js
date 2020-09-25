@@ -42,10 +42,12 @@ const express = require('express'),
     // PARENT ENDPOINTS
     
     app.get('/api/get-all-parent', parent.getAllParent)
+    app.get('/api/get-all-child', parent.getAllChild)
     app.get('/api/get-primary/:user_id', parent.getPrimary)
     app.post('/api/add-primary', parent.addPrimary)
     app.post('/api/add-secondary', parent.addSecondary)
     app.post('/api/add-child', parent.addChild)
+    app.delete('/api/delete-child/:child_id', parent.deleteChild)
 
     // AUTH ENDPOINTS
 

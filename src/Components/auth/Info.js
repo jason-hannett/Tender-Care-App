@@ -26,8 +26,7 @@ function Info(props) {
   const submit = () => {
     postPrimary()
     postSecondary()
-    postChild()
-    props.history.push('/home')
+    props.history.push('/info/add-child')
   }
 
     const postPrimary = () => {
@@ -43,79 +42,89 @@ function Info(props) {
 
     const postChild = () => {
       axios.post('/api/add-child', {childFirst, childLast, childAge})
+      .then(response => {props.history.push('/account')})
     }
 
     // console.log(secondaryLast)
   return (
+  
     <div className='main-info-container'>
-      <h1>Parent Info</h1>
-        <div className='info-container'>
-                <h2>Primary Contact</h2>
-            <div className='info-action-container'>
-              <input 
-                id='login-input' 
-                type='text'
-                placeholder='First Name'
-                onChange={event => setPf(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='text' 
-                placeholder='Last Name'
-                onChange={event => setPl(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='number' 
-                placeholder='Phone Number'
-                onChange={event => setPh(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='text' 
-                placeholder='Relationship to Child'
-                onChange={event => setPr(event.target.value)}/>
+      {props.location.pathname === '/info/add-child' 
+       ? ( <div className='info-container'>
+              <h2>Child Info</h2>
+              <div className='info-action-container'>
+                <input 
+                  id='login-input' 
+                  type='text'
+                  placeholder='First Name'
+                  onChange={event => setCf(event.target.value)}/>
+                <input 
+                  id='login-input' 
+                  type='text' 
+                  placeholder='Last Name'
+                  onChange={event => setCl(event.target.value)}/>
+                <input 
+                  id='login-input' 
+                  type='number' 
+                  placeholder='Age'
+                  onChange={event => setCa(event.target.value)}/>
+              </div>
+                <button onClick={postChild}id='login-button'>ADD CHILD</button>
+                <p onClick={() => {props.history.push('/account')}}>go back</p>
+           </div>   
+          ) 
+        : (<>
+            <h1>Emergency Contact Info</h1>
+            <div className='info-container'>
+                    <h2>Primary Contact</h2>
+                <div className='info-action-container'>
+                  <input 
+                    id='login-input' 
+                    type='text'
+                    placeholder='First Name'
+                    onChange={event => setPf(event.target.value)}/>
+                  <input 
+                    id='login-input' 
+                    type='text' 
+                    placeholder='Last Name'
+                    onChange={event => setPl(event.target.value)}/>
+                  <input 
+                    id='login-input' 
+                    type='number' 
+                    placeholder='Phone Number'
+                    onChange={event => setPh(event.target.value)}/>
+                  <input 
+                    id='login-input' 
+                    type='text' 
+                    placeholder='Relationship to Child'
+                    onChange={event => setPr(event.target.value)}/>
+                </div>
+                <h2>Secondary Contact</h2>
+                <div className='info-action-container'>
+                  <input 
+                    id='login-input' 
+                    type='text'
+                    placeholder='First Name'
+                    onChange={event => setSf(event.target.value)}/>
+                  <input 
+                    id='login-input' 
+                    type='text' 
+                    placeholder='Last Name'
+                    onChange={event => setSl(event.target.value)}/>
+                  <input 
+                    id='login-input' 
+                    type='number' 
+                    placeholder='Phone Number'
+                    onChange={event => setSph(event.target.value)}/>
+                  <input 
+                    id='login-input' 
+                    type='text' 
+                    placeholder='Relationship to Child'
+                    onChange={event => setSr(event.target.value)}/>
+                </div>
+                  <button onClick={submit}id='login-button'>SUBMIT</button>
             </div>
-            <h2>Secondary Contact</h2>
-            <div className='info-action-container'>
-              <input 
-                id='login-input' 
-                type='text'
-                placeholder='First Name'
-                onChange={event => setSf(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='text' 
-                placeholder='Last Name'
-                onChange={event => setSl(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='number' 
-                placeholder='Phone Number'
-                onChange={event => setSph(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='text' 
-                placeholder='Relationship to Child'
-                onChange={event => setSr(event.target.value)}/>
-            </div>
-            <h2>Child Info</h2>
-            <div className='info-action-container'>
-              <input 
-                id='login-input' 
-                type='text'
-                placeholder='First Name'
-                onChange={event => setCf(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='text' 
-                placeholder='Last Name'
-                onChange={event => setCl(event.target.value)}/>
-              <input 
-                id='login-input' 
-                type='number' 
-                placeholder='Age'
-                onChange={event => setCa(event.target.value)}/>
-            </div>
-              <button onClick={submit}id='login-button'>SUBMIT</button>
-        </div>
+          </>)}
     </div>
   );
 }

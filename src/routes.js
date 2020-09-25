@@ -14,6 +14,7 @@ export default (
         <Route exact path = '/auth' component = {Auth}/>
         <Route path = '/register' component = {Register}/>
         <Route path = '/info' component = {Info}/>
+        <Route path = '/info/add-child' component = {Info}/>
         <Route path = '/home' component = {Home}/>
         <Route path = '/account' component = {Account}/>
         <Route path = '/menu' component = {Menu}/>
